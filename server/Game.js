@@ -47,18 +47,21 @@ Game.prototype.MakeMove = function(playerId, boxNumber)
 {
     if(this.isGameOver === true)
     {
-        throw new Error("Game already completed");
+        //throw new Error("Game already completed");
+        return true;
     }
 
     var currPlayer = playerId === this.player1.id ? this.player1 : (playerId === this.player2.id ? this.player2 : null);
     if(currPlayer === null)
     {
-        throw new Error("Invalid Player");
+        // throw new Error("Invalid Player");
+        return true;
     }
 
     if(currPlayer.symbol !== this.currTurn)
     {
-        throw new Error("Invalid Move");
+        // throw new Error("Invalid Move");
+        return true;
     }
 
     if(this.board[boxNumber] === null)
