@@ -48,20 +48,20 @@ Game.prototype.MakeMove = function(playerId, boxNumber)
     if(this.isGameOver === true)
     {
         //throw new Error("Game already completed");
-        return true;
+        return false;
     }
 
     var currPlayer = playerId === this.player1.id ? this.player1 : (playerId === this.player2.id ? this.player2 : null);
     if(currPlayer === null)
     {
         // throw new Error("Invalid Player");
-        return true;
+        return false;
     }
 
     if(currPlayer.symbol !== this.currTurn)
     {
         // throw new Error("Invalid Move");
-        return true;
+        return false;
     }
 
     if(this.board[boxNumber] === null)
